@@ -44,9 +44,11 @@
 
 ## 安装
 
-需要本机已安装 [uv](https://github.com/astral-sh/uv)（Python 3.12+）。不必先 clone。
+请先让 Agent 阅读本仓库并按其中说明完成安装：
 
-Agent 或本机直接启动：
+https://github.com/Biogod2020/cnki-search
+
+需要本机已安装 [uv](https://github.com/astral-sh/uv)（Python 3.12+）。Agent 读完后可用下面命令启动，无需事先 clone：
 
 ```bash
 uvx --from git+https://github.com/Biogod2020/cnki-search.git cnki-search
@@ -67,7 +69,7 @@ uv run pytest -m "not live"
 
 ## 接入 MCP
 
-把下面配置交给 Agent，或写入宿主的 MCP 配置。宿主会自行通过 `uvx` 拉取并运行，无需预先克隆。
+把仓库链接交给 Agent，或把下面配置写入宿主。宿主会通过 `uvx` 拉取并运行。
 
 ```json
 {
