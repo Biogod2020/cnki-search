@@ -1,0 +1,16 @@
+# DeepSeek Harness loader entry (cordis.yml).
+# For profile patches use examples/dsh.patch.yml — patch layer must wrap with insert.
+- id: mcp-cnki
+  name: '@deepseek-ai/dsh-mcp-client'
+  config:
+    serverName: cnki
+    transport: stdio
+    command: /ABS/PATH/cnki-search/.venv/bin/cnki-search
+    args: []
+    toolCallTimeoutMs: 30000
+    failOnStartupError: true
+    reconnect:
+      enabled: true
+      initialDelayMs: 500
+      maxDelayMs: 30000
+      maxAttempts: 10

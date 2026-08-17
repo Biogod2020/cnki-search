@@ -1,0 +1,17 @@
+# DeepSeek Harness profile patch ($DSH_HOME/profiles/<name>/cordis.patch.yml).
+# The patch layer silently skips bare - id: entries that are not already loaded.
+- insert:
+    - id: mcp-cnki
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        serverName: cnki
+        transport: stdio
+        command: /ABS/PATH/cnki-search/.venv/bin/cnki-search
+        args: []
+        toolCallTimeoutMs: 30000
+        failOnStartupError: true
+        reconnect:
+          enabled: true
+          initialDelayMs: 500
+          maxDelayMs: 30000
+          maxAttempts: 10

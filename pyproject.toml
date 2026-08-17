@@ -1,0 +1,53 @@
+[project]
+name = "cnki-search"
+version = "0.1.0"
+description = "MCP server and DSH plugin for anonymous 知网空间 literature metadata search."
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+keywords = [
+    "mcp",
+    "dsh",
+    "deepseek-harness",
+    "cnki",
+    "zhiwang",
+    "literature-search",
+]
+authors = [{ name = "Biogod2020" }]
+dependencies = [
+    "beautifulsoup4>=4.15.0",
+    "curl-cffi>=0.16.0",
+    "lxml>=6.1.1",
+    "mcp>=1.28.1,<2",
+    "pydantic>=2.10,<3",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8,<10",
+]
+
+[project.urls]
+Homepage = "https://github.com/Biogod2020/cnki-search"
+Repository = "https://github.com/Biogod2020/cnki-search"
+Issues = "https://github.com/Biogod2020/cnki-search/issues"
+
+[project.scripts]
+cnki-search = "cnki_scholar.server:main"
+cnki-scholar = "cnki_scholar.server:main"
+
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/cnki_scholar"]
+
+[tool.hatch.build.targets.wheel.sources]
+"src/cnki_scholar" = "cnki_scholar"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "live: hits 知网空间 and is skipped unless RUN_LIVE_CNKI=1",
+]
