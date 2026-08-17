@@ -5,8 +5,11 @@
   config:
     serverName: cnki
     transport: stdio
-    command: /ABS/PATH/cnki-search/.venv/bin/cnki-search
-    args: []
+    command: uvx
+    args:
+      - --from
+      - git+https://github.com/Biogod2020/cnki-search.git
+      - cnki-search
     toolCallTimeoutMs: 30000
     failOnStartupError: true
     reconnect:
